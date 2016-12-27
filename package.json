@@ -1,0 +1,55 @@
+{
+  "name": "seneca-aws-adapter",
+  "description": "This is a seneca plugin for using AWS services",
+  "version": "1.0.0",
+  "tags": [
+    "seneca",
+    "plugin",
+    "micro-services",
+    "aws"
+  ],
+  "main": "lib/index.js",
+  "author": {
+    "name": "Adam Bereczk",
+    "email": "adam.bereczk@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/bersilius/seneca-aws-adapter/issues"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/bersilius/seneca-aws-adapter",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/bersilius/seneca-aws-adapter.git"
+  },
+  "engines": {
+    "node": "^4.0.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.7.19",
+    "lodash": "^4.17.3",
+    "seneca": "^3.x.x",
+    "sinon": "^1.17.6"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.15",
+    "cross-env": "^2.x.x",
+    "eslint": "^3.10.2",
+    "istanbul": "1.0.0-alpha.2",
+    "mocha": "^2.x.x",
+    "mocha-lcov-reporter": "^1.2.0",
+    "nock": "^9.0.2"
+  },
+  "scripts": {
+    "lint": "eslint lib/**",
+    "test": "cross-env NODE_ENV=test mocha --recursive 'lib/**/*.spec.js'",
+    "test:watch": "npm test -- --watch",
+    "coverage": "NODE_ENV=test istanbul cover _mocha -- recursive --timeout 15000 'lib/**/*.spec.js'",
+    "coveralls": "NODE_ENV=test istanbul cover _mocha --report lcovonly -- recursive --timeout 15000 'lib/**/*.spec.js' -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+  },
+  "pre-push": [
+    "lint",
+    "test"
+  ]
+}

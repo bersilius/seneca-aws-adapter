@@ -1,0 +1,27 @@
+<ListPlatformApplicationsResponse xmlns="http://sns.amazonaws.com/doc/2010-03-31/">
+  <ListPlatformApplicationsResult>
+    <PlatformApplications>
+      <member>
+        <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/APNS_SANDBOX/apnspushapp</PlatformApplicationArn>
+        <Attributes>
+          <entry>
+            <key>AllowEndpointPolicies</key>
+            <value>false</value>
+          </entry>
+        </Attributes>
+      </member>
+      <member>
+        <PlatformApplicationArn>arn:aws:sns:us-west-2:123456789012:app/GCM/gcmpushapp</PlatformApplicationArn>
+        <Attributes>
+          <entry>
+            <key>AllowEndpointPolicies</key>
+            <value>false</value>
+          </entry>
+        </Attributes>
+      </member>
+    </PlatformApplications>
+  </ListPlatformApplicationsResult>
+  <ResponseMetadata>
+        <RequestId>315a335e-85d8-52df-9349-791283cbb529</RequestId>
+  </ResponseMetadata>
+</ListPlatformApplicationsResponse>
