@@ -4,7 +4,9 @@
 [![Build Status][travis-badge]][travis-url]
 [![Coveralls][BadgeCoveralls]][Coveralls]
 
-This is a seneca plugin
+This is a seneca plugin that maps AWS Service operations provided by the aws-sdk to Seneca actions. So the aws-sdk itself can be used as a Seneca plugin. When you instantiate the plugin or call any service operation you can use the same parameters as you would use with the awd-sdk.
+
+Currently one AWS service can be used at a time. Because when you init the plugin, you have to decide which AWS service object you will use. Probably if you build microservices you will not need more than one AWS service in a worker.
 
 ## Installation
 
@@ -25,36 +27,58 @@ To obtain coverage, run:
 To load the plugin:
 
 ```JavaScript
-    seneca.use('{plugin_name}}', /* options... */ )
+    seneca.use('seneca-aws-adapter', /* options... */ )
 ```
 
 ### Options
 
-There are no options for this plugin.
+```JavaScript
+    const options = {
+        service: 'SNS',
+        serviceOptions: {...}
+    }
+```
+The 'service' key stand for AWS service name like SNS, S3, etc. It has to be the same as the key when you normally instantiate a new AWS object with aws-sdk, like:
 
+```JavaScript
+    const sns = new AWS.SNS(/*serviceOptions*/)
+```
+
+The service options can be the same as the params you use with the aws-sdk. See the Constructor Details of the given service you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
 ### Actions
 
-All actions provide results via the standard callback format: `function(error,data){ ... }`.
+All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error,data){ ... }`.
 
-#### role: seneca-aws-adapter, cmd: TBD
+#### role: seneca-aws-adapter, service: 'SNS' cmd: 'listPlatformApplications'
 
-TBD
+List all Platform Applications managed by the AWS SNS Service.
 
 _Parameters:_
 
-- `payload`: ???
+- `params`: {...}
+
+See the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
 _Response:_ 
 
-- None
+- err, data
 
+See the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
+
+TODO: include in tests
+
+#### role: seneca-aws-adapter, service: 'S3' cmd: 'getObject'
+
+Get object by id from an AWS S3 Bucket.
+
+...
 
 ## References
 
 - [Seneca.js](http://senecajs.org/)
 - [How to Write a Seneca Plugin](http://senecajs.org/docs/tutorials/how-to-write-a-plugin.html)
-
+- [AWS SDK for JavaScript - Alphabetic Index](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html)
 ---
 
 This project was generated from the [seneca-plugin-archetype](https://github.com/tombenke/seneca-plugin-archetype)
