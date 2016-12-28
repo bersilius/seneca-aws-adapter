@@ -30,12 +30,16 @@ To load the plugin:
     seneca.use('seneca-aws-adapter', /* options... */ )
 ```
 
-### Options
+### Options - SNS example
 
 ```JavaScript
     const options = {
         service: 'SNS',
-        serviceOptions: {...}
+        serviceOptions: {
+            accessKeyId: 'accessKeyIdProvidedBySNS',
+            secretAccessKey: 'secretAccessKeyProvidedBySNS',
+            region: 'us-west-2'
+        }
     }
 ```
 The 'service' key stand for AWS service name like SNS, S3, etc. It has to be the same as the key when you normally instantiate a new AWS object with aws-sdk, like:
@@ -46,11 +50,11 @@ The 'service' key stand for AWS service name like SNS, S3, etc. It has to be the
 
 The service options can be the same as the params you use with the aws-sdk. See the Constructor Details of the given service you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
-### Actions
+### Actions - examples
 
-All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error,data){ ... }`.
+All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error, data){ ... }`.
 
-#### role: seneca-aws-adapter, service: SNS cmd: listPlatformApplications
+#### role: seneca-aws-adapter, service: SNS, cmd: listPlatformApplications
 
 List all Platform Applications managed by the AWS SNS Service.
 
@@ -62,13 +66,15 @@ See the Method Details of the given service operation you use in [AWS SDK for Ja
 
 _Response:_ 
 
-- err, data
+```JavaScript
+    { response: data } // data is an object contains the AWS service response
+```
 
 See the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
 TODO: include in tests
 
-#### role: seneca-aws-adapter, service: S3 cmd: getObject
+#### role: seneca-aws-adapter, service: S3, cmd: getObject
 
 Get object by id from an AWS S3 Bucket.
 
