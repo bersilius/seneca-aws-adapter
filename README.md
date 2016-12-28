@@ -50,7 +50,7 @@ The service options can be the same as the params you use with the aws-sdk. See 
 
 All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error,data){ ... }`.
 
-#### role: seneca-aws-adapter, service: 'SNS' cmd: 'listPlatformApplications'
+#### role: seneca-aws-adapter, service: SNS cmd: listPlatformApplications
 
 List all Platform Applications managed by the AWS SNS Service.
 
@@ -68,7 +68,7 @@ See the Method Details of the given service operation you use in [AWS SDK for Ja
 
 TODO: include in tests
 
-#### role: seneca-aws-adapter, service: 'S3' cmd: 'getObject'
+#### role: seneca-aws-adapter, service: S3 cmd: getObject
 
 Get object by id from an AWS S3 Bucket.
 
