@@ -6,8 +6,6 @@
 
 This is a seneca plugin that maps AWS Service operations provided by the aws-sdk to Seneca actions. So the aws-sdk itself can be used as a Seneca plugin. When you instantiate the plugin or call any service operation you can use the same parameters as you would use with the awd-sdk.
 
-Currently one AWS service can be used at a time. Because when you init the plugin, you have to decide which AWS service object you will use. Probably if you build microservices you will not need more than one AWS service in a worker.
-
 ## Installation
 
 Run the install command:
@@ -49,6 +47,14 @@ The 'service' key stand for AWS service name like SNS, S3, etc. It has to be the
 ```
 
 The service options can be the same as the params you use with the aws-sdk. See the Constructor Details of the given service you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
+
+You can initialize the plugin multiple times, so you can use multiple services at the same time.
+
+```JavaScript
+    seneca
+        .use('seneca-aws-adapter', { service: 'SNS', serviceOptions: optionsSNS )
+        .use('seneca-aws-adapter', { service: 'S3', serviceOptions: optionsS3 )
+```
 
 ### Actions - examples
 
