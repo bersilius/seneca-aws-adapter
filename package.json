@@ -1,7 +1,7 @@
 {
   "name": "seneca-aws-adapter",
   "description": "This is a seneca plugin for using AWS services",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "tags": [
     "seneca",
     "plugin",
