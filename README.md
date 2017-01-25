@@ -112,7 +112,7 @@ In this example the service's JSON response has a property called 'Endpoints'. I
 
 #### role: aws, service: S3, cmd: getObject, params: ...
 
-Get object by id from an AWS S3 Bucket.
+Get object by unique 'Key' from an AWS S3 'Bucket'.
 
 ```
 seneca.act({
