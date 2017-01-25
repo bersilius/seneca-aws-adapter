@@ -4,7 +4,11 @@
 [![Build Status][travis-badge]][travis-url]
 [![Coveralls][BadgeCoveralls]][Coveralls]
 
-This is a seneca plugin that maps AWS Service operations provided by the aws-sdk to Seneca actions. So the aws-sdk itself can be used as a Seneca plugin. When you instantiate the plugin or call any service operation you can use the same parameters as you would use with the aws-sdk.
+This is a Seneca plugin that maps AWS Service operations provided by the aws-sdk to Seneca actions. So the aws-sdk itself can be used as a Seneca plugin. When you instantiate the plugin or call any service operation you can use the same parameters as you would use with the aws-sdk.
+
+Under the hood, upon initialization this plugin creates a new object using the aws-sdk. This object provided by aws-sdk has the methods that are actually API functions for a specific AWS service operation. The plugin then maps these functions to Seneca message patterns by adding Seneca message handlers for each aws-sdk service method. This way with the help of Seneca and this plugin, you can call aws-sdk methods easily by calling a Seneca action with a given pattern from anywhere of your system. Even from a physically remote instance.
+
+------
 
 ## Installation
 
@@ -24,6 +28,8 @@ To obtain coverage, run:
 
 ## Usage
 
+Here you can find general info about initialization and some action examples. Also check the [examples](https://github.com/bersilius/seneca-aws-adapter/tree/master/examples) folder for more use cases.
+
 To load the plugin:
 
 ```javaScript
@@ -42,9 +48,10 @@ To load the plugin:
         }
     }
 ```
-The 'service' key stand for AWS service API name like SNS, S3, etc. It has to be the same as the key when you normally instantiate a new AWS object with aws-sdk, like:
+The 'service' property stands for AWS service API name like SNS, S3, etc. It has to be the same as the AWS object's property key when you normally instantiate a new AWS object with aws-sdk, like:
 
 ```javaScript
+    // Default aws-sdk way
     const sns = new AWS.SNS(/* serviceParams */)
     // or
     const s3 = new AWS.S3(/* serviceParams */)
@@ -77,9 +84,16 @@ The 'serviceParams' can be used the same way as the 'params' you use with the aw
 
 ### Actions - examples
 
-All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error, data){ ... }`.
+Looking at some message patterns we can probably guess which AWS service operation will be triggered with the given params:
 
-For available commands and the corresponding params see the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
+*'role:aws,service:S3,cmd:listBuckets,params:{...}'*
+*'role:aws,service:EC2,cmd:startInstances,params:{...}'*
+*'role:aws,service:IAM,cmd:createUser,params:{...}'*
+*'role:aws,service:SNS,cmd:createPlatformEndpoint,params:{...}'*
+
+All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error, data){ ... }`. Using standard callback format fit aws-sdk and Seneca as well.
+
+For available commands and the corresponding 'params' see the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
 #### role: aws, service: SNS, cmd: listPlatformApplications, params: ...
 
