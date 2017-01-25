@@ -12,7 +12,7 @@ seneca
             service: 'SNS',
             cmd: 'listEndpointsByPlatformApplication',
             params: {
-                PlatformApplicationArn: /* Paste in your PlatformApplicationArn */'arn:aws:sns:us-west-2:546572276725:app/GCM/seneca-aws-adapter-sns-test'
+                PlatformApplicationArn: /* Paste in your PlatformApplicationArn */
             }
         }, function(error, result) {
             if (error) {
