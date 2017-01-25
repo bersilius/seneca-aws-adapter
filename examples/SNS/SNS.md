@@ -67,12 +67,25 @@ seneca
 
 ## Options details:
 
-If you use aws-sdk for SNS service you might do it this way:
+If you use simply aws-sdk for SNS service you might do it this way:
 
 ```javascript
-const options = {}
+const options = {...}
 const aws = require('aws-sdk')
 const sns = aws.SNS(options)
+```
+
+In our case we will create an options object that will have a service key with value 'SNS'. And also a 'serviceParams' which will be an object that will hold the actual service constructor params defined by the aws-sdk service object constructor.
+
+```javascript
+const options = {
+    service: 'SNS',
+    serviceParams: {
+        accessKeyId: 'STRING',
+        secretAccessKey: 'STRING',
+        region: 'STRING'
+    }
+}
 ```
 
 You can find details of the available options in the aws-sdk SNS documentation at [Constructor Details](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html#constructor-property)
