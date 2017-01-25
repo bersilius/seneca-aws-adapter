@@ -163,9 +163,9 @@ In this example the service's JSON response has a property called 'Body'. It may
 This project was generated from the [seneca-plugin-archetype](https://github.com/tombenke/seneca-plugin-archetype)
 by the [kickoff](https://github.com/tombenke/kickoff) utility.
 
-[npm-badge]: https://badge.fury.io/js/seneca-aws-sns.svg
-[npm-url]: https://badge.fury.io/js/seneca-aws-sns
-[travis-badge]: https://api.travis-ci.org/bersilius/seneca-aws-sns.svg
-[travis-url]: https://travis-ci.org/bersilius/seneca-aws-sns
-[Coveralls]: https://coveralls.io/github/bersilius/seneca-aws-sns?branch=master
-[BadgeCoveralls]: https://coveralls.io/repos/github/bersilius/seneca-aws-sns/badge.svg?branch=master
+[npm-badge]: https://badge.fury.io/js/seneca-aws-adapter.svg
+[npm-url]: https://badge.fury.io/js/seneca-aws-adapter
+[travis-badge]: https://api.travis-ci.org/bersilius/seneca-aws-adapter.svg
+[travis-url]: https://travis-ci.org/bersilius/seneca-aws-adapter
+[Coveralls]: https://coveralls.io/github/bersilius/seneca-aws-adapter?branch=master
+[BadgeCoveralls]: https://coveralls.io/repos/github/bersilius/seneca-aws-adapter/badge.svg?branch=master
