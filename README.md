@@ -81,7 +81,7 @@ All AWS service operations can be called like Seneca actions. All actions provid
 
 For available commands and the corresponding params see the Method Details of the given service operation you use in [AWS SDK for JavaScript Docs](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/_index.html).
 
-#### role: aws, service: SNS, cmd: listPlatformApplications
+#### role: aws, service: SNS, cmd: listPlatformApplications, params: ...
 
 List all Platform Application Endpoint managed by the AWS SNS Service.
 
@@ -110,7 +110,7 @@ In this example the service's JSON response has a property called 'Endpoints'. I
 
 ------
 
-#### role: aws, service: S3, cmd: getObject
+#### role: aws, service: S3, cmd: getObject, params: ...
 
 Get object by id from an AWS S3 Bucket.
 
