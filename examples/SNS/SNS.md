@@ -20,9 +20,11 @@ If you already have the accessKeyId and secretAccessKey or just obtained a new s
 
 ### Some of the important options are:
 
+```
 accessKeyId // your AWS access key ID.
 secretAccessKey // your AWS access key
 region // the region you have chosen for your service
+```
 
 In this example we load the plugin with the 'options' object for using AWS SNS service. Optionally we will use built in seneca-transport to listen for incoming messages. Your microservice is ready to process commands, like:
 
