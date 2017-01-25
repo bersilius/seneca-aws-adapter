@@ -136,7 +136,7 @@ The 'response' property's value is the actual JSON response from the AWS S3 serv
 {"response": actualS3ServiceResponse }
 ```
 
-In this example the service's JSON response has a property called 'Endpoints'. It is an array of objects, containing details about the available 'endpoints'.
+In this example the service's JSON response has a property called 'Body'. It may be Buffer, Typed Array, Blob, String, ReadableStream, the actual data in the 'object'.
 
 ## References
 
