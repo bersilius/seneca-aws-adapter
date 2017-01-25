@@ -1,6 +1,6 @@
 ### IAM
 
-You will have to create a user. You will be guided through a few view to create the user and obtain the required credentials.
+You will have to create a user. You will be guided through a few views to create the user and obtain the required credentials.
 
 On the "Details" view where you set "User name" you will have to check the "Programmatic access" checkbox, to enable an access key ID and secret access key for your microservice (or script, etc.) to configure your seneca-aws-adapter plugin.
 
