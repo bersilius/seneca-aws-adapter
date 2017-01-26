@@ -86,10 +86,10 @@ The 'serviceParams' can be used the same way as the 'params' you use with the aw
 
 Looking at some message patterns we can probably guess which AWS service operation will be triggered with the given params:
 
-*'role:aws,service:S3,cmd:listBuckets,params:{...}'*
-*'role:aws,service:EC2,cmd:startInstances,params:{...}'*
-*'role:aws,service:IAM,cmd:createUser,params:{...}'*
-*'role:aws,service:SNS,cmd:createPlatformEndpoint,params:{...}'*
+- *'role:aws,service:S3,cmd:listBuckets,params:{...}'*
+- *'role:aws,service:EC2,cmd:startInstances,params:{...}'*
+- *'role:aws,service:IAM,cmd:createUser,params:{...}'*
+- *'role:aws,service:SNS,cmd:createPlatformEndpoint,params:{...}'*
 
 All AWS service operations can be called like Seneca actions. All actions provide results via the standard callback format: `function(error, data){ ... }`. Using standard callback format fit aws-sdk and Seneca as well.
 
