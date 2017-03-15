@@ -1,7 +1,7 @@
 {
   "name": "seneca-aws-adapter",
   "description": "This is a seneca plugin for using AWS services",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "tags": [
     "seneca",
     "plugin",
@@ -38,8 +38,7 @@
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^2.x.x",
     "mocha-lcov-reporter": "^1.2.0",
-    "nock": "^9.0.2",
-    "sinon": "^1.17.6"
+    "nock": "^9.0.2"
   },
   "scripts": {
     "lint": "eslint lib/**",

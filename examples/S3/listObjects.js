@@ -12,7 +12,7 @@ seneca
             service: 'S3',
             cmd: 'listObjects',
             params: {
-                Bucket: /* Paste in your Bucket name */ 'seneca-aws-adapter'
+                Bucket: /* Paste in your Bucket name */
             }
         }, function(error, result) {
             if (error) {
