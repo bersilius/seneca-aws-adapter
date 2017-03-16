@@ -14,7 +14,7 @@ Under the hood, upon initialization this plugin creates a new object using the a
 
 Run the install command:
 
-    npm install
+    npm install --save seneca-aws-adapter
 
 Run tests:
 
@@ -69,8 +69,8 @@ This way you can initialize the plugin multiple times, so you can use multiple A
 
 ```javaScript
     seneca
-        .use('seneca-aws-adapter', { service: 'SNS', serviceParams: paramsSNS )
-        .use('seneca-aws-adapter', { service: 'S3', serviceParams: paramsS3 )
+        .use('seneca-aws-adapter', { service: 'SNS', serviceParams: paramsSNS })
+        .use('seneca-aws-adapter', { service: 'S3', serviceParams: paramsS3, awsEventListeners: { ... } })
 ```
 
 Maybe you want to gather information from one or more AWS services and save those as a text log in an S3 bucket.
